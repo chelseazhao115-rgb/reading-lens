@@ -1,0 +1,26 @@
+{
+  "name": "ielts-reading-diagnostic-coach",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file-if-exists=.env server.js",
+    "test": "node --test",
+    "eval": "node evals/run-evals.js",
+    "eval:provider": "node evals/run-provider-benchmark.js --provider=rule --max-cost-usd=0",
+    "eval:provider:deepseek:smoke": "node --env-file=.env evals/run-provider-benchmark.js --provider=deepseek --model=deepseek-v4-flash --max-output-tokens=600 --start=0 --limit=1 --max-cost-usd=0.0013 --output=deepseek-v3-smoke.json",
+    "eval:provider:deepseek:remaining": "node --env-file=.env evals/run-provider-benchmark.js --provider=deepseek --model=deepseek-v4-flash --max-output-tokens=600 --start=1 --limit=7 --max-cost-usd=0.0087 --smoke=deepseek-v3-smoke.json --output=deepseek-v3-remaining.json",
+    "eval:provider-pack": "node evals/build-provider-prompt-pack.js",
+    "eval:review-pack": "node evals/build-review-pack.js",
+    "eval:import-review": "node evals/import-review-csv.js",
+    "eval:exercise-review-pack": "node evals/build-exercise-review-pack.js",
+    "eval:import-exercise-review": "node evals/import-exercise-review-csv.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^5.4.149",
+    "tesseract.js": "^6.0.1"
+  }
+}

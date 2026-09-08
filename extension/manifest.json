@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Reading Lens",
+  "version": "0.1.15",
+  "description": "保存爱听写雅思阅读学习痕迹，并提供错因诊断与错词学习册。",
+  "permissions": ["sidePanel", "storage", "activeTab"],
+  "host_permissions": [
+    "https://www.idictation.cn/ielts/*",
+    "http://127.0.0.1:4173/*",
+    "http://localhost:4173/*"
+  ],
+  "background": { "service_worker": "service-worker.js", "type": "module" },
+  "side_panel": { "default_path": "sidepanel.html" },
+  "content_scripts": [{
+    "matches": ["https://www.idictation.cn/ielts/*"],
+    "js": ["idictation-adapter.js", "content.js"],
+    "css": ["content.css"],
+    "run_at": "document_idle"
+  }],
+  "web_accessible_resources": [{
+    "resources": ["workspace-store.js", "vocabulary-store.js"],
+    "matches": ["https://www.idictation.cn/*"]
+  }],
+  "action": { "default_title": "打开 Reading Lens" }
+}

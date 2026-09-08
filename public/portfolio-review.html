@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reading Lens | 案例理解测试</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/portfolio-review.css">
+</head>
+<body class="portfolio-review-page">
+  <header class="topbar">
+    <a class="brand" href="/case-study.html">Reading Lens Case</a>
+    <span class="badge">PORTFOLIO COMPREHENSION STUDY</span>
+  </header>
+  <main class="portfolio-review-main">
+    <section class="review-thesis">
+      <p class="kicker">3–5 MINUTE EVIDENCE TEST</p>
+      <h1>不问“你觉得清楚吗”，只检查他能复述什么。</h1>
+      <p>主持人让首次接触项目的招聘相关评审者限时阅读案例，然后关闭案例、口头复述。只有未经提示说出的概念才记为理解。</p>
+    </section>
+
+    <section class="review-workspace" aria-labelledby="setup-title">
+      <div class="protocol-column">
+        <div class="section-heading"><span>PROTOCOL</span><span>主持人屏幕</span></div>
+        <h2 id="setup-title">开始一次匿名测试</h2>
+        <form id="portfolio-review-form">
+          <div class="setup-grid">
+            <label>匿名评审编号<input name="reviewer_id" required pattern="[A-Za-z0-9_-]{2,24}" placeholder="例如 R001"></label>
+            <label>评审角色<select name="reviewer_role" required><option value="">请选择</option><option value="recruiter">产品招聘人员</option><option value="product_interviewer">产品面试官或产品负责人</option><option value="ai_education_practitioner">AI教育从业者</option></select></label>
+          </div>
+          <label class="consent-row"><input type="checkbox" name="first_exposure" required>此前没有看过该案例</label>
+          <label class="consent-row"><input type="checkbox" name="consent_confirmed" required>评审者同意匿名记录理解结果，并知道可以停止或撤回</label>
+
+          <div class="timer-ledger" id="timer-ledger" data-state="idle">
+            <div><span>CASE READING WINDOW</span><strong id="reading-timer">05:00</strong></div>
+            <p id="timer-status">点击开始后会在新标签打开案例。主持人不要解释项目。</p>
+            <div class="timer-actions">
+              <button id="start-reading" class="primary-button" type="button">开始阅读案例</button>
+              <button id="stop-reading" class="secondary-button" type="button" disabled>结束阅读并开始复述</button>
+            </div>
+          </div>
+          <input type="hidden" name="reading_time_seconds">
+
+          <fieldset id="recall-panel" disabled>
+            <legend>盲回忆核验</legend>
+            <p class="field-help">先关闭案例页。不要向评审者朗读下面的标准；根据其自由复述逐项判断。</p>
+            <label class="consent-row"><input type="checkbox" name="recall_without_case" required>复述时没有查看案例页或笔记</label>
+            <label>主持人是否给过内容提示<select name="prompting_used" required><option value="">请选择</option><option value="false">否</option><option value="true">是</option></select></label>
+            <div class="concept-ledger" aria-label="九项理解标准">
+              <label><span><b>用户问题</b>学生知道做错，却不知道最早错在哪个认知步骤。</span><select name="user_problem" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>普通解析不足</b>解释正确答案不能识别稳定错因。</span><select name="why_answer_explanation_insufficient" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>Evidence + Reasoning</b>二者用于定位判断从哪一步偏离。</span><select name="why_evidence_reasoning" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>错因体系</b>固定五类，并按最早失败步骤归类。</span><select name="taxonomy" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>工作流</b>确定性验证、结构化诊断、练习、迁移、学习记录。</span><select name="agent_workflow" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>模型评测</b>教师Gold、准确率、Macro F1、置信校准和边界集。</span><select name="model_evaluation" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>失败边界</b>规则基线大量拒答；DeepSeek v2虽消除已观察到的不安全错误，但仍有契约失败且不是Teacher Gold，因此未上线。</span><select name="failure_boundary" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>安全兜底</b>证据验证、结构闸门和低置信教师复核。</span><select name="safety_fallback" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+              <label><span><b>学习效果验证</b>即时练习不等于掌握，要看迁移、复发与真实用户行为。</span><select name="learning_validation" required><option value="">未判断</option><option value="true">自主提到</option><option value="false">没有提到</option></select></label>
+            </div>
+            <label>观察记录（禁止填写姓名、电话、邮箱）<textarea name="observer_notes" rows="3" placeholder="只记录行为，例如：主动指出规则基线高拒答。"></textarea></label>
+            <button class="primary-button" type="submit">保存匿名理解记录</button>
+          </fieldset>
+          <p id="portfolio-review-message" class="field-status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <aside class="evidence-column">
+        <div class="section-heading"><span>EVIDENCE</span><span id="portfolio-readiness">NOT READY</span></div>
+        <h2>当前证据边界</h2>
+        <div id="portfolio-summary" class="portfolio-summary"></div>
+        <p class="report-note">少于5名合格首次评审时，所有理解率保持N/A。这里不记录Offer结果，也不把案例理解等同于招聘成功。</p>
+        <button id="export-portfolio-study" class="secondary-button" type="button">导出匿名JSON</button>
+        <div id="portfolio-records" class="portfolio-records"></div>
+        <div id="portfolio-withdraw" class="withdraw-box" hidden>
+          <strong>撤回记录 <span id="portfolio-withdraw-id"></span></strong>
+          <label>撤回原因<input id="portfolio-withdraw-reason" maxlength="200"></label>
+          <button id="confirm-portfolio-withdraw" class="danger-button" type="button">确认撤回这一条</button>
+          <button id="cancel-portfolio-withdraw" class="secondary-button" type="button">取消</button>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <script type="module" src="/portfolio-review.js"></script>
+</body>
+</html>

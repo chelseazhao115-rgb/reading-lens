@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "artifact_type": "usability_summary",
+  "pilot_id": "usability-pilot-001",
+  "data_source": "real_user_research",
+  "exported_at": "2026-09-02T15:03:02.980Z",
+  "source_file": "reading-lens-usability-2026-08-31.json",
+  "source_sha256": "2D114742D7535D6C6AD4E3D8BFB617F3EA3C6C1B3F3AF56671D22E8050A43EFE",
+  "post_fix_source_file": "reading-lens-usability-2026-09-02.json",
+  "post_fix_source_sha256": "C5969DF45B9FAB23CA5ECACCF65A6B1FEB517226042EFEC5332BD08C1EAA24DE",
+  "direct_identifiers_included": false,
+  "sample": {
+    "eligible_records": 5,
+    "unique_research_sessions": 5,
+    "duplicate_session_records": 0,
+    "target_band": "5.5-6.5"
+  },
+  "metrics": {
+    "unassisted_completion": { "numerator": 5, "denominator": 5, "rate": 1 },
+    "evidence_selection_success": { "numerator": 5, "denominator": 5, "rate": 1 },
+    "diagnosis_comprehension": { "numerator": 4, "denominator": 5, "rate": 0.8 },
+    "median_completion_time_seconds": 59,
+    "median_diagnosis_comprehension_time_seconds": 302
+  },
+  "post_fix_retest": {
+    "eligible_records": 3,
+    "minimum_sample": 3,
+    "instructional_value_metrics": {
+      "sample_size": 3,
+      "specific_error_understanding_rate": 1,
+      "next_action_understanding_rate": 1,
+      "practice_relevance_understanding_rate": 1
+    }
+  },
+  "known_defect_caveat": "P004 encountered a confirmed diagnosis bug during the baseline pilot. The bug was fixed before a separate three-user post-fix retest; baseline and retest records are not pooled.",
+  "limitation": "Exploratory usability evidence from five baseline users and three separate post-fix target users; not evidence of IELTS score improvement, long-term learning, or population-level effectiveness."
+}

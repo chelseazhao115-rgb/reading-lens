@@ -1,0 +1,19 @@
+.reading-lens-diagnose {
+  margin: 10px 0 4px; min-height: 36px; padding: 7px 12px; border: 1px solid #176b4d;
+  border-radius: 8px; background: #fff; color: #105239; font: 700 13px/1.2 system-ui, sans-serif;
+  cursor: pointer;
+}
+.reading-lens-diagnose:hover { background: #eaf3ee; }
+.reading-lens-diagnose:focus-visible { outline: 3px solid rgba(23,107,77,.3); outline-offset: 2px; }
+.reading-lens-diagnose[data-error="true"] { border-color: #9f2f2f; color: #9f2f2f; cursor: help; }
+::highlight(reading-lens-evidence) { background:#52d9e8; color:inherit; text-decoration:underline 2px #07869a; }
+::highlight(reading-lens-mistake) { background:#f7d6a5; color:inherit; }
+::highlight(reading-lens-vocabulary) { background:#c9dcf4; color:inherit; }
+.reading-lens-highlight-layer{position:fixed;inset:0;z-index:2147483000;pointer-events:none}.reading-lens-highlight-rect{position:fixed;border-radius:2px;box-shadow:inset 0 -2px currentColor;mix-blend-mode:multiply}.reading-lens-highlight-rect.evidence{background:rgba(40,211,231,.62);color:#07869a}.reading-lens-highlight-rect.mistake{background:rgba(238,159,55,.42);color:#a95d13}.reading-lens-highlight-rect.vocabulary{background:rgba(70,145,218,.38);color:#246ba7}
+.reading-lens-selection-tools { position:fixed; z-index:2147483646; display:flex; gap:4px; width:max-content; padding:5px; border:1px solid #cad2cd; border-radius:10px; background:#fff; box-shadow:0 8px 24px rgba(23,33,29,.16); }
+.reading-lens-selection-tools[hidden] { display:none; }
+.reading-lens-selection-tools button { min-height:32px; padding:5px 8px; border:0; border-radius:6px; background:#f1f4f2; color:#17211d; font:650 12px/1 system-ui,sans-serif; cursor:pointer; }
+.reading-lens-selection-tools button:hover { background:#e4eee8; }
+.reading-lens-restore { position:fixed; right:18px; bottom:18px; z-index:2147483645; display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:10px; max-width:560px; padding:14px; border:1px solid #cad2cd; border-radius:12px; background:#fff; box-shadow:0 12px 36px rgba(23,33,29,.16); color:#17211d; font:14px/1.4 system-ui,sans-serif; }
+.reading-lens-restore div { display:grid; }.reading-lens-restore span { color:#65706b; font-size:12px; }.reading-lens-restore button { min-height:36px; padding:7px 10px; border:0; border-radius:7px; background:#176b4d; color:white; font-weight:700; cursor:pointer; }.reading-lens-restore button.secondary { background:#edf1ee; color:#3d4944; }
+.reading-lens-toast { position:fixed; left:50%; bottom:24px; z-index:2147483647; max-width:420px; transform:translateX(-50%); padding:10px 14px; border-radius:8px; background:#17211d; color:white; font:600 13px/1.4 system-ui,sans-serif; box-shadow:0 8px 24px rgba(23,33,29,.18); }.reading-lens-toast[data-error="true"]{background:#8b2929;}

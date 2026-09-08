@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="上传 IELTS 阅读练习 PDF，自动识别文章和题目，并完成证据式错因诊断。"><title>识别题库 | Reading Lens</title><link rel="stylesheet" href="/styles.css"><link rel="stylesheet" href="/import.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><nav class="header-nav"><a href="/">原创演示</a><span class="header-note">本机 PDF 练习</span></nav></header>
+  <main class="import-main">
+    <section class="import-intro"><h1>上传练习文件，识别题库</h1><p>系统自动识别文章、题目和答案候选。开始练习前，请校对识别结果并补充每道题的标准证据。</p></section>
+
+    <ol class="import-progress" aria-label="导入进度"><li class="active" data-step="upload">上传</li><li data-step="passage">识别文章</li><li data-step="questions">校对题目</li><li data-step="practice">开始练习</li></ol>
+
+    <section id="upload-step" class="import-surface">
+      <h2>选择 PDF</h2><p class="support-copy">支持文字版与扫描版 PDF，最大60MB、200页。上传后自动识别阅读文章和题目；扫描页会自动启用英文 OCR。</p>
+      <label class="drop-zone" for="pdf-file"><strong>选择本机 PDF</strong><span>文件不会保存在服务器</span><input id="pdf-file" type="file" accept="application/pdf,.pdf"></label>
+      <button id="extract-pdf" class="primary-button compact-button" type="button" disabled>识别文章与题目</button><p id="upload-status" class="field-status" role="status"></p>
+    </section>
+
+    <section id="passage-step" class="import-surface" hidden>
+      <div class="surface-heading"><div><h2>确认识别出的文章页</h2><p class="support-copy">系统已预选可能包含 Reading Passage 的页面。请保留一篇文章的连续页面，答案页不要选入。</p></div><span id="document-meta"></span></div>
+      <div id="page-list" class="page-list"></div><button id="build-passage" class="primary-button compact-button" type="button">合并所选页面</button><p id="passage-status" class="field-status" role="status"></p>
+    </section>
+
+    <section id="questions-step" class="import-surface" hidden>
+      <h2>校对自动识别结果</h2><p id="detection-summary" class="detection-summary"></p><p class="support-copy">题目和答案是自动识别候选。请逐项校对；标准证据仍需逐字存在于文章中。</p>
+      <label for="set-title" class="field-label">练习名称</label><input id="set-title" class="text-input" placeholder="例如 Cambridge 18 Test 2 Passage 1">
+      <label for="passage-editor" class="field-label">文章正文</label><textarea id="passage-editor" rows="12"></textarea>
+      <div id="question-editors" class="question-editors"></div>
+      <button id="add-question" class="secondary-button compact-button" type="button">添加一道题</button><button id="start-practice" class="primary-button compact-button" type="button">确认数据并开始练习</button><p id="question-status" class="field-status" role="status"></p>
+    </section>
+
+    <section id="practice-step" hidden>
+      <div class="practice-layout">
+        <article class="import-passage"><div class="surface-heading"><h2 id="practice-title"></h2><span id="practice-count"></span></div><p id="practice-passage" class="passage"></p></article>
+        <section class="practice-question"><p id="practice-type" class="question-type"></p><h2 id="practice-prompt"></h2><div id="practice-options" class="practice-options"></div><button id="check-imported-answer" class="primary-button" type="button">检查答案</button>
+          <div id="diagnose-imported" hidden><p id="answer-feedback" class="answer-feedback"></p><label for="imported-evidence" class="field-label">你依据的原文证据</label><textarea id="imported-evidence" rows="4" placeholder="粘贴或划选文章中的原句"></textarea><button id="capture-imported-evidence" class="secondary-button" type="button">使用文章中划选的文字</button><label for="imported-reasoning" class="field-label">你当时是怎么判断的？</label><textarea id="imported-reasoning" rows="3" placeholder="一句真实思路即可"></textarea><button id="run-imported-diagnosis" class="primary-button" type="button">诊断这道题</button></div>
+          <div id="imported-result" class="imported-result" hidden><h3 id="imported-result-title"></h3><p id="imported-result-reason"></p><div id="imported-feedback"></div><section id="imported-exercise" class="imported-exercise" hidden><h3>针对性微练习</h3><p id="imported-exercise-question"></p><div id="imported-exercise-options" class="practice-options"></div><button id="check-imported-exercise" class="primary-button" type="button">提交练习</button><p id="imported-exercise-status" class="field-status" role="status"></p></section><button id="next-imported-question" class="secondary-button" type="button">下一题</button></div><p id="practice-status" class="field-status" role="status"></p>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/import.js"></script>
+</body></html>

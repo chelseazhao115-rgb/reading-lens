@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>微练习教师审核 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">微练习质量审核</span></header>
+  <main class="review-main">
+    <section class="review-intro">
+      <p class="kicker">MICRO EXERCISE TEACHER REVIEW</p>
+      <h1>结构通过，不等于教学有效。</h1>
+      <p class="intro-copy">先在不知道目标标签和标准答案的情况下独立作答、判断训练错因；锁定后再揭示标准信息，完成六维质量审核。这样避免答案与标签提示影响教师判断。</p>
+      <p><a class="text-link" href="/exercise-review-start.html">首次审核前，请先阅读独立性与两阶段规则</a></p>
+    </section>
+
+    <section class="review-toolbar" aria-label="微练习审核进度">
+      <div><strong id="exercise-progress-reviewed">0 / 10</strong><span>已处理</span></div>
+      <div><strong id="exercise-progress-blinded">0 / 10</strong><span>已锁定盲判</span></div>
+      <div><strong id="exercise-progress-approved">0</strong><span>盲判与六项通过</span></div>
+      <div><strong id="exercise-progress-revision">0</strong><span>需修订</span></div>
+      <label>审核者编号<input id="exercise-reviewer-id" type="text" placeholder="例如 teacher-001" autocomplete="off"></label>
+    </section>
+    <label class="consent-row reviewer-attestation"><input id="exercise-reviewer-attestation" type="checkbox">我确认自己具有雅思阅读教学或正式教研经验，未参与这些练习、答案或目标标签的编写，并以独立专业判断完成审核。</label>
+
+    <section id="exercise-review-case" class="review-case" aria-labelledby="exercise-case-title">
+      <div class="section-heading"><span id="exercise-case-position">EXERCISE 1 / 10</span><span id="exercise-case-origin">ORIGINAL PROJECT CONTENT</span></div>
+      <h2 id="exercise-case-title"></h2>
+      <div id="exercise-gold-meta" class="exercise-review-meta" hidden>
+        <div><span class="review-label">目标错因</span><strong id="exercise-case-target"></strong></div>
+        <div><span class="review-label">阶段</span><strong id="exercise-case-stage"></strong></div>
+      </div>
+      <article class="exercise-passage"><p id="exercise-review-passage"></p></article>
+      <div class="review-reading">
+        <div><span class="review-label">题目</span><p id="exercise-review-question" class="review-question"></p></div>
+        <div><span class="review-label">选项</span><ol id="exercise-review-options" class="review-option-list"></ol><p id="exercise-answer-reveal" hidden>标准答案：<strong id="exercise-review-answer"></strong></p></div>
+      </div>
+
+      <form id="exercise-blind-form" class="dimension-form">
+        <fieldset><legend>第一阶段：独立盲判</legend>
+          <p class="field-help">先选择你认为唯一合理的答案，再判断这道题主要训练哪类阅读错误。提交后不可修改。</p>
+          <div id="exercise-blind-options" class="blind-answer-options"></div>
+          <label for="exercise-blind-target">这道题主要训练</label>
+          <select id="exercise-blind-target">
+            <option value="">请选择一级错因</option>
+            <option value="location">定位错误</option><option value="paraphrase">同义替换错误</option>
+            <option value="sentence_comprehension">句子理解错误</option><option value="question_strategy">题型策略错误</option>
+            <option value="over_inference">推理越界</option>
+          </select>
+          <button id="exercise-reveal" class="primary-button" type="button">锁定判断并揭示标准信息</button>
+        </fieldset>
+      </form>
+
+      <form id="exercise-review-form" class="dimension-form" hidden>
+        <p id="exercise-blind-comparison" class="field-status"></p>
+        <fieldset id="dimension-fields"><legend>六维质量判断</legend></fieldset>
+        <label for="exercise-review-notes">审核说明</label>
+        <textarea id="exercise-review-notes" rows="3" placeholder="任一项不通过时必须说明具体问题和修改方向。"></textarea>
+        <div class="review-actions">
+          <button class="secondary-button exercise-review-save" type="button" data-status="rejected">拒绝使用</button>
+          <button class="secondary-button exercise-review-save" type="button" data-status="needs_revision">标记需修订</button>
+          <button class="primary-button exercise-review-save" type="button" data-status="approved">六项通过并进入下一题</button>
+        </div>
+      </form>
+      <p id="exercise-review-message" class="field-status" aria-live="polite"></p>
+      <nav class="review-navigation" aria-label="微练习导航">
+        <button id="previous-exercise-case" class="text-button" type="button">上一题</button>
+        <button id="next-exercise-case" class="text-button" type="button">下一题</button>
+      </nav>
+    </section>
+    <p><a class="text-link" href="/review.html">进入诊断案例盲审</a>　<a class="text-link" href="/analytics.html">查看数据状态</a></p>
+  </main>
+  <script type="module" src="/exercise-review.js"></script>
+</body></html>

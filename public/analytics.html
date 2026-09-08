@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Demo Analytics | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">产品分析</span></header>
+  <main class="analytics-main">
+    <section class="analytics-heading"><p class="kicker">DEMO DATA ONLY</p><h1>核心学习漏斗</h1><p class="intro-copy">以下数据只来自当前浏览器中的产品演示，不代表真实用户、模型效果或学习提升。</p></section>
+    <section class="analytics-panel" aria-labelledby="funnel-title"><div class="section-heading"><span>FUNNEL</span><span>DEMO DATA</span></div><h2 id="funnel-title">从开始作答到迁移完成</h2><ol id="funnel-list" class="funnel-list"></ol></section>
+    <section class="analytics-panel" aria-labelledby="rates-title"><div class="section-heading"><span>RATES</span><span>仅行为指标</span></div><h2 id="rates-title">关键转化率</h2><div id="rate-grid" class="rate-grid"></div></section>
+    <section class="analytics-panel" aria-labelledby="sources-title">
+      <div class="section-heading"><span>DATA PROVENANCE</span><span>禁止混用</span></div>
+      <h2 id="sources-title">数据来源状态</h2>
+      <div class="source-grid">
+        <div><strong>Demo Data</strong><span>当前浏览器行为，仅用于验证埋点与页面。</span></div>
+        <div><strong>Eval Data</strong><span>合成基线与教师复核结果由 npm run eval 单独生成。</span></div>
+        <div><strong>Real User Data</strong><span id="real-user-status">正在读取独立研究记录。</span></div>
+      </div>
+    </section>
+    <section class="analytics-panel" aria-labelledby="real-title">
+      <div class="section-heading"><span>USABILITY EVIDENCE</span><span>REAL USER RESEARCH</span></div>
+      <h2 id="real-title">首次用户测试</h2>
+      <div id="real-user-metrics" class="rate-grid"></div>
+      <p class="report-note">少于5名合格、同意匿名记录的目标用户时，汇总比例保持 N/A。这些结果只证明可用性，不证明雅思提分。</p>
+    </section>
+    <p><a class="text-link" href="/case-study.html">查看产品案例</a>　<a class="text-link" href="/">返回诊断产品</a>　<a class="text-link" href="/evals.html">查看Eval Results</a>　<a class="text-link" href="/review.html">进入诊断盲审</a>　<a class="text-link" href="/exercise-review.html">进入微练习审核</a>　<a class="text-link" href="/usability.html">记录首次用户测试</a></p>
+  </main>
+  <script type="module" src="/analytics.js"></script>
+</body></html>

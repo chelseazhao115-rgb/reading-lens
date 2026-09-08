@@ -1,0 +1,45 @@
+[
+  {
+    "id": "correct_sound_01",
+    "passage": "The workshop moved from Monday to Thursday because the instructor was unavailable at the start of the week.",
+    "question_type": "TRUE_FALSE_NOT_GIVEN",
+    "question": "The workshop will take place on Thursday.",
+    "correct_answer": "TRUE",
+    "user_answer": "TRUE",
+    "standard_evidence": { "quote": "The workshop moved from Monday to Thursday" },
+    "user_evidence": { "quote": "The workshop moved from Monday to Thursday" },
+    "reasoning_process": "The passage directly states that the workshop moved to Thursday.",
+    "expected_status": "correct",
+    "expected_answer_result": "correct",
+    "expected_primary_error": null
+  },
+  {
+    "id": "correct_lucky_location_01",
+    "passage": "The workshop moved from Monday to Thursday. Registration closes on Tuesday.",
+    "question_type": "TRUE_FALSE_NOT_GIVEN",
+    "question": "The workshop will take place on Thursday.",
+    "correct_answer": "TRUE",
+    "user_answer": "TRUE",
+    "standard_evidence": { "quote": "The workshop moved from Monday to Thursday." },
+    "user_evidence": { "quote": "Registration closes on Tuesday." },
+    "reasoning_process": "I selected the registration sentence because it contains a day of the week.",
+    "expected_status": "diagnosed",
+    "expected_answer_result": "correct",
+    "expected_primary_error": "location"
+  },
+  {
+    "id": "correct_insufficient_01",
+    "passage": "The workshop moved from Monday to Thursday.",
+    "question_type": "TRUE_FALSE_NOT_GIVEN",
+    "question": "The workshop will take place on Thursday.",
+    "correct_answer": "TRUE",
+    "user_answer": "TRUE",
+    "standard_evidence": { "quote": "The workshop moved from Monday to Thursday." },
+    "user_evidence": { "quote": "The workshop moved from Monday to Thursday." },
+    "reasoning_process": "",
+    "expected_status": "abstained",
+    "expected_answer_result": "correct",
+    "expected_primary_error": "insufficient_information"
+  }
+]
+

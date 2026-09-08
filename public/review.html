@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>教师盲审 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">教师评测复核</span></header>
+  <main class="review-main">
+    <section class="review-intro">
+      <p id="review-track-kicker" class="kicker">BLIND TEACHER REVIEW</p>
+      <h1 id="review-track-title">先判断证据，再决定标签。</h1>
+      <p id="review-track-intro" class="intro-copy">页面不会显示系统拟议标签。只有未参与案例编写的雅思阅读教师完成独立盲审，记录才会进入Gold评测。</p>
+      <p><a class="text-link" href="/review-start.html">首次审核前，请先阅读启动说明与10条试审规则</a></p>
+      <p class="track-switch"><a class="text-link" href="/review.html?track=author_qa">项目作者QA</a>　<a class="text-link" href="/review.html">独立教师Gold盲审</a></p>
+    </section>
+
+    <section class="review-toolbar" aria-label="审核进度">
+      <div><strong id="progress-reviewed">0 / 50</strong><span>已处理</span></div>
+      <div><strong id="progress-approved">0</strong><span id="progress-approved-label">教师Gold准入</span></div>
+      <div><strong id="progress-revision">0</strong><span>需修订</span></div>
+      <label>审核者编号<input id="reviewer-id" type="text" placeholder="例如 teacher-001" autocomplete="off"></label>
+    </section>
+    <label class="consent-row reviewer-attestation"><input id="reviewer-attestation" type="checkbox"><span id="reviewer-attestation-copy">我确认自己具有雅思阅读教学或正式教研经验，未参与这些案例的编写或标签设计，并以独立判断完成审核。</span></label>
+
+    <section class="pilot-review" aria-labelledby="pilot-review-title">
+      <div>
+        <p class="kicker">10 CASE PILOT</p>
+        <h2 id="pilot-review-title">先完成交错试审，再检查样本质量。</h2>
+        <p>前10条交错覆盖五类主要错因与三种特殊状态。试审期间继续隐藏作者标签、模型预测、置信度和一致率，避免影响后续40条判断。</p>
+      </div>
+      <dl>
+        <div><dt id="pilot-reviewed">0 / 10</dt><dd>试审已处理</dd></div>
+        <div><dt id="pilot-issues">0</dt><dd>样本 / 来源问题</dd></div>
+        <div><dt id="pilot-status">进行中</dt><dd>检查点状态</dd></div>
+      </dl>
+    </section>
+
+    <details class="handoff-panel special-state-guide">
+      <summary><strong>三种特殊状态怎么区分？</strong></summary>
+      <dl>
+        <dt>信息不足 insufficient_information</dt>
+        <dd>题目、标准答案和标准证据本身有效，但学生证据或思考过程缺失、无效或不足以判断错因。</dd>
+        <dt>题目含糊 ambiguous_question</dt>
+        <dd>题干、指代、范围或选项存在两个以上合理解释，无法建立唯一可信的标准答案。</dd>
+        <dt>数据错误 data_error</dt>
+        <dd>标准证据不在原文、标准答案异常，或题目数据内部矛盾。必须在数据闸门停止，不要修补数据后继续诊断学生。</dd>
+      </dl>
+      <p class="handoff-note"><strong>优先级：</strong>先检查题目与标准数据，再检查学生信息，最后才进入五步错因链。坏Gold不能被归因成学生的句子理解错误。</p>
+    </details>
+
+    <section id="review-case" class="review-case" aria-labelledby="case-title">
+      <div class="section-heading"><span id="case-position">CASE 1 / 50</span><span>PROJECT SYNTHETIC DATA</span></div>
+      <h2 id="case-title">评测候选</h2>
+      <div class="review-reading">
+        <div>
+          <span class="review-label">原文</span>
+          <p id="review-passage" class="review-passage"></p>
+        </div>
+        <div>
+          <span class="review-label">题目</span>
+          <p id="review-question" class="review-question"></p>
+          <dl class="review-answers">
+            <dt>标准答案</dt><dd id="review-correct-answer"></dd>
+            <dt>学生答案</dt><dd id="review-user-answer"></dd>
+          </dl>
+        </div>
+      </div>
+      <div class="review-evidence">
+        <div><span class="review-label">标准证据</span><blockquote id="review-standard-evidence"></blockquote></div>
+        <div><span class="review-label">学生证据</span><blockquote id="review-user-evidence"></blockquote></div>
+      </div>
+      <div class="review-reasoning"><span class="review-label">学生思考过程</span><p id="review-reasoning"></p></div>
+
+      <form id="review-form" class="review-form">
+        <label for="reviewer-label">你的一级标签</label>
+        <select id="reviewer-label" name="reviewer_label">
+          <option value="">请选择</option>
+          <option value="location">定位错误 location</option>
+          <option value="paraphrase">同义替换 paraphrase</option>
+          <option value="sentence_comprehension">句子理解 sentence_comprehension</option>
+          <option value="question_strategy">题型策略 question_strategy</option>
+          <option value="over_inference">推理越界 over_inference</option>
+          <option value="insufficient_information">信息不足 insufficient_information</option>
+          <option value="ambiguous_question">题目含糊 ambiguous_question</option>
+          <option value="data_error">数据错误 data_error</option>
+        </select>
+        <label for="reviewer-failed-step">最先失败的因果步骤</label>
+        <select id="reviewer-failed-step" name="reviewer_failed_step">
+          <option value="">请选择</option>
+          <option value="evidence_location">1 证据定位</option>
+          <option value="semantic_mapping">2 同义替换</option>
+          <option value="sentence_understanding">3 句子理解</option>
+          <option value="question_rule">4 题型规则</option>
+          <option value="reasoning_boundary">5 推理边界</option>
+          <option value="not_applicable">不适用：信息不足/题目含糊/数据错误</option>
+        </select>
+        <label for="reviewer-notes">审核说明</label>
+        <textarea id="reviewer-notes" name="reviewer_notes" rows="3" minlength="8" placeholder="至少8个字符：说明证据与思路如何支持该最早失败步骤。"></textarea>
+        <div class="review-actions">
+          <button class="secondary-button review-save" type="button" data-status="rejected">拒绝该案例</button>
+          <button class="secondary-button review-save" type="button" data-status="needs_revision">标记需修订</button>
+          <button class="primary-button review-save" type="button" data-status="approved">批准并进入下一条</button>
+        </div>
+      </form>
+      <p id="review-message" class="field-status" aria-live="polite"></p>
+      <nav class="review-navigation" aria-label="案例导航">
+        <button id="previous-case" class="text-button" type="button">上一条</button>
+        <button id="next-case" class="text-button" type="button">下一条</button>
+      </nav>
+    </section>
+    <p><a class="text-link" href="/exercise-review.html">审核微练习质量</a>　<a class="text-link" href="/analytics.html">查看数据状态</a></p>
+  </main>
+  <script type="module" src="/review.js"></script>
+</body></html>

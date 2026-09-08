@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>教师审核启动说明 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">教师审核启动说明</span></header>
+  <main class="review-start-main">
+    <section class="review-start-hero">
+      <p class="kicker">TEACHER REVIEW HANDOFF</p>
+      <h1 id="review-handoff-title">先完成10条试审，再决定是否继续。</h1>
+      <p class="intro-copy">这是一项AI雅思阅读错因诊断研究，不是学生考试，也不是模型效果宣传。你将独立判断证据、学生思路和最早失败步骤；系统标签与置信度在判断前保持隐藏。</p>
+      <p id="review-handoff-status" class="field-status" aria-live="polite">正在读取服务端审核进度。</p>
+      <div class="review-start-actions">
+        <a id="review-handoff-cta" class="primary-button inline-button" href="/review.html">开始独立教师试审</a>
+        <a class="secondary-button inline-button" href="/review.html?track=author_qa">先做项目作者QA</a>
+        <a class="secondary-button inline-button" href="#protocol">先阅读审核规则</a>
+      </div>
+    </section>
+
+    <section class="handoff-strip" aria-label="审核范围">
+      <div><strong>10条</strong><span>第一阶段交错试审</span></div>
+      <div><strong>50条</strong><span>诊断Gold完整门槛</span></div>
+      <div><strong>8类</strong><span>五类错因与三种特殊状态</span></div>
+      <div><strong>匿名</strong><span>不填写姓名、邮箱或学生身份</span></div>
+    </section>
+
+    <div class="review-start-grid">
+      <div>
+        <section class="handoff-panel" aria-labelledby="eligibility-title">
+          <p class="kicker">01 · ELIGIBILITY</p>
+          <h2 id="eligibility-title">什么人适合审核</h2>
+          <p>正式Gold仅限具有雅思阅读教学或正式教研经验、且未参与案例编写和标签设计的独立审核者。项目作者可以使用单独的作者QA入口检查样本，但结果不会进入Gold。</p>
+          <ul class="handoff-list">
+            <li>不要使用姓名、手机号、邮箱、机构或学生信息。</li>
+            <li><code>browser-validation</code>、<code>test</code>、<code>demo</code>等流程编号不会进入Teacher Gold。</li>
+            <li>页面中的50条材料均为项目原创合成候选，不是官方雅思真题。</li>
+            <li>独立教师使用稳定匿名编号，例如<code>teacher-027</code>；项目作者使用例如<code>author-001</code>，两条轨道不可混用。</li>
+          </ul>
+        </section>
+
+        <section id="protocol" class="handoff-panel" aria-labelledby="protocol-title">
+          <p class="kicker">02 · BLIND PROTOCOL</p>
+          <h2 id="protocol-title">每条案例按同一因果链判断</h2>
+          <ol class="protocol-steps">
+            <li><strong>证据定位</strong><span>学生是否找到支持标准答案的正确证据区域？</span></li>
+            <li><strong>同义替换</strong><span>学生是否识别题干与原文的语义对应？</span></li>
+            <li><strong>句子理解</strong><span>词义、语法、指代、否定、对比、范围或因果是否理解正确？</span></li>
+            <li><strong>题型规则</strong><span>理解原文后，是否错误使用题型判断规则？</span></li>
+            <li><strong>推理边界</strong><span>是否加入原文未提供的信息或过度推断？</span></li>
+          </ol>
+          <p class="handoff-note">选择最早失败的一步，只突出一个主要错因。信息不足、题目含糊或数据错误时使用对应特殊状态，不要勉强归入五类。</p>
+        </section>
+
+        <section class="handoff-panel" aria-labelledby="review-phase-title">
+          <p id="review-phase-kicker" class="kicker">03 · 10-CASE PILOT</p>
+          <h2 id="review-phase-title">试审检查点</h2>
+          <p id="review-phase-body">建议先预留20–30分钟完成10条交错试审。实际耗时取决于判断与说明深度，不把该估计当作绩效要求。</p>
+          <ul class="handoff-checklist">
+            <li>每条是否都有足够信息形成独立判断？</li>
+            <li>标准证据是否为支持答案的最小充分证据？</li>
+            <li>一级标签是否与“最早失败步骤”一致？</li>
+            <li>说明是否明确引用证据和学生思路，而不是只复述标签？</li>
+            <li>是否存在需要修订、拒绝或第二位老师复核的边界案例？</li>
+          </ul>
+          <p class="handoff-note">完成10条不代表通过质量门槛。若样本或来源检查未通过，先暂停剩余40条。</p>
+        </section>
+      </div>
+
+      <aside class="handoff-sidebar" aria-label="审核操作说明">
+        <section>
+          <p class="kicker">TIMEBOX</p>
+          <h2>如何分批完成</h2>
+          <p>先做10条试审；通过检查点后，再将剩余40条分为2–4个批次。页面会保存到服务端，可以关闭后继续。</p>
+        </section>
+        <section>
+          <p class="kicker">PAUSE & RESUME</p>
+          <h2>暂停与恢复</h2>
+          <p>重新打开审核页后会定位到下一条未合格记录。不要清空或手工编辑项目中的审核JSON文件。</p>
+        </section>
+        <section>
+          <p class="kicker">CONFLICT</p>
+          <h2>多人同时审核</h2>
+          <p>若提示案例已被其他会话更新，旧页面不会覆盖先保存的结论；系统会加载最新状态，请重新阅读后再判断。</p>
+        </section>
+        <section>
+          <p class="kicker">NO CLAIMS YET</p>
+          <h2>数据边界</h2>
+          <p>未完成50条合格Gold前，不计算或展示正式教师一致率、Macro F1、校准或混淆矩阵。</p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="invite-template" aria-labelledby="invite-title">
+      <p class="kicker">INVITATION TEMPLATE</p>
+      <h2 id="invite-title">可直接发送的邀请文字</h2>
+      <blockquote id="review-invitation-text">正在根据服务端进度生成当前批次邀请文字。</blockquote>
+    </section>
+
+    <section class="review-start-footer">
+      <div><p class="kicker">SECOND PROTOCOL</p><h2>诊断Gold之后，再审核练习质量。</h2><p>微练习采用独立盲答、盲判训练目标、揭示Gold和六维复核的两阶段流程。不要与诊断试审混在同一时间段完成。</p></div>
+      <a class="secondary-button inline-button" href="/exercise-review-start.html">进入微练习审核说明</a>
+    </section>
+  </main>
+  <script type="module" src="/review-start.js"></script>
+</body>
+</html>

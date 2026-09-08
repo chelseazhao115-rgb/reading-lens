@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Eval Results | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">模型与产品评测</span></header>
+  <main class="eval-main">
+    <section class="analytics-heading">
+      <p class="kicker">EVAL DATA · NOT REAL USER DATA</p>
+      <h1>哪些结果已经证明，哪些仍然未知。</h1>
+      <p class="intro-copy">合成基线只验证评测框架和回归保护；教师Gold才用于官方一致率。两者不会合并展示。</p>
+      <p id="eval-generated" class="report-note"></p>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="framework-title">
+      <div class="section-heading"><span>FRAMEWORK BASELINE</span><span>SYNTHETIC PROJECT DATA</span></div>
+      <h2 id="framework-title">合成回归基线</h2>
+      <div id="framework-metrics" class="rate-grid"></div>
+      <p id="framework-limitation" class="report-note"></p>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="challenge-title">
+      <div class="section-heading"><span>BOUNDARY CHALLENGE</span><span>ADVERSARIAL SYNTHETIC DATA</span></div>
+      <h2 id="challenge-title">自然表达下，规则基线会在哪里失效</h2>
+      <div id="challenge-metrics" class="rate-grid"></div>
+      <p id="challenge-limitation" class="report-note"></p>
+      <div class="table-scroll"><table class="eval-table"><thead><tr><th>边界</th><th>期望</th><th>预测</th><th>状态</th><th>置信度</th><th>安全</th></tr></thead><tbody id="challenge-body"></tbody></table></div>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="official-title">
+      <div class="section-heading"><span>OFFICIAL METRICS</span><span>TEACHER GOLD ONLY</span></div>
+      <h2 id="official-title">教师一致率与置信度</h2>
+      <div id="official-readiness" class="source-grid"></div>
+      <div id="official-metrics" class="rate-grid"></div>
+      <p id="official-message" class="report-note"></p>
+    </section>
+
+    <section id="provider-benchmark-panel" class="analytics-panel" aria-labelledby="provider-benchmark-title" hidden>
+      <div class="section-heading"><span>PROVIDER BENCHMARK</span><span>NO AUTOMATIC PROMOTION</span></div>
+      <h2 id="provider-benchmark-title">候选模型必须证明不会让产品退步</h2>
+      <div id="provider-benchmark-metrics" class="rate-grid"></div>
+      <div id="provider-promotion-checks" class="source-grid"></div>
+      <p id="provider-benchmark-note" class="report-note"></p>
+    </section>
+
+    <section id="provider-candidate-panel" class="analytics-panel" aria-labelledby="provider-candidate-title" hidden>
+      <div class="section-heading"><span>LIVE PROVIDER ITERATION</span><span>PROJECT-AUTHORED CASES · NOT TEACHER GOLD</span></div>
+      <h2 id="provider-candidate-title">DeepSeek Prompt v1 → v2 → v3：错误驱动迭代</h2>
+      <div id="provider-candidate-metrics" class="rate-grid"></div>
+      <div id="provider-candidate-checks" class="source-grid"></div>
+      <p id="provider-candidate-note" class="report-note"></p>
+    </section>
+
+    <section id="calibration-panel" class="analytics-panel" aria-labelledby="calibration-title" hidden>
+      <div class="section-heading"><span>CONFIDENCE CALIBRATION</span><span>TEACHER GOLD</span></div>
+      <h2 id="calibration-title">置信度是否可信</h2>
+      <div id="calibration-grid" class="rate-grid"></div>
+      <div class="table-scroll"><table class="eval-table"><thead><tr><th>置信区间</th><th>样本</th><th>平均置信度</th><th>准确率</th><th>Gap</th></tr></thead><tbody id="calibration-body"></tbody></table></div>
+    </section>
+
+    <section id="boundary-panel" class="analytics-panel" aria-labelledby="boundary-title" hidden>
+      <div class="section-heading"><span>BOUNDARY PAIRS</span><span>TEACHER GOLD</span></div>
+      <h2 id="boundary-title">关键错因边界</h2>
+      <div class="table-scroll"><table class="eval-table"><thead><tr><th>边界</th><th>Gold样本</th><th>组内准确率</th><th>A→B</th><th>B→A</th><th>双向混淆率</th><th>错到其他类</th></tr></thead><tbody id="boundary-body"></tbody></table></div>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="exercise-quality-title">
+      <div class="section-heading"><span>MICRO EXERCISE QUALITY</span><span>STRUCTURE ≠ TEACHER VALIDITY</span></div>
+      <h2 id="exercise-quality-title">微练习评测</h2>
+      <div id="exercise-eval-metrics" class="rate-grid"></div>
+    </section>
+
+    <p><a class="text-link" href="/validation.html">查看验证工作台</a>　<a class="text-link" href="/case-study.html">查看产品案例</a>　<a class="text-link" href="/analytics.html">查看产品数据来源</a>　<a class="text-link" href="/review.html">进入诊断盲审</a>　<a class="text-link" href="/exercise-review.html">进入微练习审核</a></p>
+  </main>
+  <script type="module" src="/evals.js"></script>
+</body></html>

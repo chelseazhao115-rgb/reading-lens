@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>真实用户复测记录 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">研究记录工具</span></header>
+  <main class="study-main">
+    <section class="study-intro">
+      <p class="kicker">REAL USER RESEARCH</p>
+      <h1>真实用户无指导可用性测试</h1>
+      <p class="intro-copy">这是研究者记录页，不是参与者作答页。匿名会话会把产品实际事件与本次记录关联；不会依赖研究者手工声称参与者已经提交证据或完成诊断。</p>
+      <p><a class="text-link" href="/usability-start.html">首次主持测试前，请先阅读无指导协议与本地会话限制</a></p>
+    </section>
+
+    <section class="study-grid">
+      <form id="study-form" class="study-form">
+        <div class="section-heading"><span>SESSION RECORD</span><span>目标用户 5.5–6.5</span></div>
+        <input type="hidden" name="study_round" value="post_fix_retest">
+        <p class="report-note"><strong>第二轮修复后复测：</strong>新记录与首轮基线分开汇总，不会把旧数据当作新版效果。</p>
+        <div id="correction-banner" class="correction-banner" hidden>
+          <strong>正在纠错：<span id="correction-id"></span></strong>
+          <label for="correction-reason">纠错原因</label>
+          <input id="correction-reason" minlength="3" maxlength="200" placeholder="例如：研究者误录了证据选择结果">
+          <button id="cancel-correction" class="secondary-button" type="button">取消纠错</button>
+        </div>
+        <label class="field-label" for="participant-id">匿名参与者编号</label>
+        <input id="participant-id" name="participant_id" required pattern="[A-Za-z0-9_-]{2,24}" placeholder="例如 P001">
+
+        <div class="study-row">
+          <label>阅读分数<select name="reading_band" required><option value="">请选择</option><option>5.5</option><option>6.0</option><option>6.5</option></select></label>
+          <label>有雅思阅读经验<select name="has_ielts_experience" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+          <label>正确率长期停滞<select name="accuracy_plateau" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+        </div>
+
+        <fieldset class="blocker-fieldset"><legend>教学价值复述核验（根据用户回答编码，不要提示答案）</legend>
+          <div class="study-row">
+            <label>能指出这题具体漏掉了什么<select name="specific_error_understood" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+            <label>能说出下一次具体怎么做<select name="next_action_understood" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+            <label>能说出练习与本次错因的关系<select name="practice_relevance_understood" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+          </div>
+        </fieldset>
+
+        <label class="consent-row"><input type="checkbox" name="consent_confirmed" required>参与者已明确同意匿名记录本次任务表现，并知道可以拒绝参与或随时停止。</label>
+
+        <div class="research-session-panel">
+          <strong>匿名产品会话</strong>
+          <p>先创建会话，让参与者从专属链接进入产品。完成诊断及系统提供的后续练习后，返回本页同步真实事件。</p>
+          <input type="hidden" name="research_session_id">
+          <div>
+            <button id="create-research-session" class="secondary-button" type="button">创建测试会话</button>
+            <a id="open-research-session" class="primary-button inline-button" href="/" target="_blank" rel="noopener" hidden>打开参与者产品页</a>
+            <button id="sync-research-session" class="secondary-button" type="button" hidden>同步产品事件</button>
+          </div>
+          <p id="research-session-status" class="field-status" aria-live="polite">尚未创建会话。</p>
+        </div>
+
+        <div class="timer-panel">
+          <div><span>核心诊断任务耗时</span><strong id="task-time">等待事件同步</strong><span>由产品事件自动计算</span></div>
+          <div><span>诊断理解计时</span><strong id="diagnosis-time">未开始</strong><button id="diagnosis-timer" class="secondary-button" type="button" aria-label="开始诊断理解计时">开始计时</button></div>
+        </div>
+        <input type="hidden" name="completion_time_seconds">
+        <input type="hidden" name="diagnosis_comprehension_time_seconds">
+
+        <div class="study-row">
+          <label>无研究者帮助完成<select name="unassisted_completion" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+          <label>成功提交原文证据<input name="evidence_selection_success_display" value="等待事件同步" readonly><input type="hidden" name="evidence_selection_success"></label>
+          <label>能复述错在哪里及如何修正<select name="diagnosis_understood" required><option value="">请选择</option><option value="true">是</option><option value="false">否</option></select></label>
+        </div>
+
+        <fieldset class="blocker-fieldset"><legend>观察到的阻塞点（可多选，无阻塞则不选）</legend>
+          <div class="check-grid">
+            <label><input type="checkbox" name="blocker_codes" value="start_clarity">不理解产品目标</label>
+            <label><input type="checkbox" name="blocker_codes" value="answer_input">答案输入</label>
+            <label><input type="checkbox" name="blocker_codes" value="evidence_selection">证据划选</label>
+            <label><input type="checkbox" name="blocker_codes" value="reasoning_input">思路填写</label>
+            <label><input type="checkbox" name="blocker_codes" value="diagnosis_comprehension">诊断理解</label>
+            <label><input type="checkbox" name="blocker_codes" value="exercise_retry">练习重试</label>
+            <label><input type="checkbox" name="blocker_codes" value="transfer">迁移题</label>
+            <label><input type="checkbox" name="blocker_codes" value="technical">技术故障</label>
+          </div>
+        </fieldset>
+
+        <label class="field-label" for="observer-notes">观察记录（不得填写直接身份信息）</label>
+        <textarea id="observer-notes" name="observer_notes" rows="4" placeholder="只记录行为，例如：第一次没有看到划选按钮。"></textarea>
+        <button class="primary-button" type="submit">保存匿名研究记录</button>
+        <p id="study-message" class="field-status" aria-live="polite"></p>
+      </form>
+
+      <aside class="protocol-panel">
+        <div class="section-heading"><span>PROTOCOL</span><span>不要教学</span></div>
+        <h2>主持人操作顺序</h2>
+        <ol>
+          <li>确认目标用户条件和匿名记录同意，再创建匿名测试会话。</li>
+          <li>只说：“请独立完成一次诊断和系统提供的后续练习。”</li>
+          <li>让参与者从专属链接进入，产品自动记录核心事件和耗时。</li>
+          <li>观察但不解释按钮、证据或答案。</li>
+          <li>诊断出现后启动理解计时，请参与者复述错在哪里、为什么、下次怎么做。</li>
+          <li>只追问三个中性问题：“具体漏掉了什么？”“下次怎么做？”“练习和刚才的错因有什么关系？”根据复述编码，不展示标准说法。</li>
+          <li>返回本页同步事件；诊断路径需要迁移题事件，正确或安全拒答路径在结果页终止。</li>
+        </ol>
+        <p>总体可用性不足5名时不输出比例；修复后教学价值指标不足3名时保持N/A，并始终显示样本数。</p>
+      </aside>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="study-summary-title">
+      <div class="section-heading"><span>REAL USER DATA</span><span id="study-readiness">NOT READY</span></div>
+      <h2 id="study-summary-title">研究证据状态</h2>
+      <div id="study-summary" class="rate-grid"></div>
+      <div class="case-actions">
+        <button id="export-study" class="secondary-button" type="button">导出匿名JSON</button>
+        <label class="secondary-button inline-button" for="import-study">导入已有JSON</label>
+        <input id="import-study" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p id="import-study-message" class="field-status" aria-live="polite">导入只追加通过校验的新记录；不会覆盖同编号或同会话的现有数据。</p>
+    </section>
+
+    <section class="analytics-panel" aria-labelledby="records-title">
+      <div class="section-heading"><span>RECORD CONTROL</span><span>定向纠错与撤回</span></div>
+      <h2 id="records-title">已保存的匿名记录</h2>
+      <p class="report-note">撤回只删除指定参与者的活动记录，审计日志仅保留匿名编号、动作、原因和时间，不保留该参与者的作答内容。</p>
+      <div id="study-records" class="record-list"></div>
+      <div id="withdraw-panel" class="withdraw-panel" hidden>
+        <strong>确认撤回 <span id="withdraw-id"></span></strong>
+        <label for="withdraw-reason">撤回原因</label>
+        <input id="withdraw-reason" minlength="3" maxlength="200" placeholder="例如：参与者要求撤回记录">
+        <div><button id="confirm-withdraw" class="danger-button" type="button">确认撤回这一条记录</button><button id="cancel-withdraw" class="secondary-button" type="button">取消</button></div>
+        <p id="record-message" class="field-status" aria-live="polite"></p>
+      </div>
+      <p id="audit-count" class="report-note"></p>
+    </section>
+  </main>
+  <script type="module" src="/usability.js"></script>
+</body></html>

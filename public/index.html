@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="根据答案、证据句和思考过程诊断雅思阅读错因。">
+  <title>Reading Lens | 雅思阅读错因诊断</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Reading Lens 首页">Reading Lens</a>
+    <nav class="header-nav" aria-label="主要入口"><a href="/import.html">导入我的 PDF</a><span class="header-note">错因诊断实验</span></nav>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <p class="kicker">IELTS READING DIAGNOSTIC COACH</p>
+      <h1 id="page-title">不是再看一遍解析，而是找到你错在哪一步。</h1>
+      <p class="intro-copy">提交答案、原文证据和一句判断理由。相同答案可能来自不同思路，系统需要结合证据和理由判断错误发生在哪一步，而不是只看对错。</p>
+    </section>
+
+    <section class="workspace" aria-label="阅读诊断工作区">
+      <div class="progress" aria-label="当前步骤">
+        <span class="progress-item active">1 作答</span>
+        <span class="progress-item">2 划选证据</span>
+        <span class="progress-item">3 一句话说明</span>
+        <span class="progress-item">4 诊断</span>
+      </div>
+
+      <div class="question-layout">
+        <article class="passage-panel" aria-labelledby="passage-title">
+          <div class="section-heading">
+            <span>READING PASSAGE</span>
+            <span>原创演示题</span>
+          </div>
+          <h2 id="passage-title">Urban foxes and city life</h2>
+          <p id="passage" class="passage" tabindex="0">Urban foxes often rest in gardens during daylight. Their main feeding areas, however, are bins behind restaurants after dark. Researchers say the animals choose these sites because discarded food is more predictable than natural prey.</p>
+          <button id="capture-evidence" class="secondary-button" type="button">使用划选文字作为证据</button>
+          <p class="selection-help">先在原文中拖动划选证据，再点击按钮。系统只接受原文中真实存在的文字。</p>
+        </article>
+
+        <form id="diagnostic-form" class="answer-panel">
+          <div class="section-heading"><span id="question-number">QUESTION 1</span><span>TRUE / FALSE / NOT GIVEN</span></div>
+          <fieldset>
+            <legend id="question-prompt">Urban foxes mainly find food in private gardens.</legend>
+            <div class="answer-options">
+              <label><input type="radio" name="answer" value="TRUE" required><span>TRUE</span></label>
+              <label><input type="radio" name="answer" value="FALSE"><span>FALSE</span></label>
+              <label><input type="radio" name="answer" value="NOT GIVEN"><span>NOT GIVEN</span></label>
+            </div>
+          </fieldset>
+
+          <label class="field-label" for="evidence">你的证据</label>
+          <textarea id="evidence" name="evidence" rows="3" required placeholder="优先从左侧划选；也可以粘贴原文中的证据"></textarea>
+          <p id="evidence-status" class="field-status" aria-live="polite">尚未选择证据。手动粘贴的文字也会接受原文匹配校验。</p>
+
+          <label class="field-label" for="reasoning">你当时是怎么判断的？</label>
+          <p class="field-guidance">为什么要写：同一个答案可能是定位、词义、句子理解或题型规则造成的，只看答案无法区分。无需凑字数，一句话即可。</p>
+          <textarea id="reasoning" name="reasoning" rows="4" required placeholder="例如：原文没有说明南部森林的数量，所以我选 NOT GIVEN。"></textarea>
+
+          <button id="submit-button" class="primary-button" type="submit">验证证据并诊断</button>
+          <p class="privacy-note">本地演示不会要求姓名。诊断可能不确定，低置信度时会明确建议教师确认。</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="result-section" class="result-section" aria-labelledby="result-title" hidden>
+      <div class="result-topline">
+        <div>
+          <p class="kicker">DIAGNOSIS</p>
+          <h2 id="result-title">诊断结果</h2>
+        </div>
+        <span id="confidence-badge" class="confidence-badge"></span>
+      </div>
+
+      <div id="result-error" class="error-message" hidden></div>
+      <div id="result-content">
+        <div id="answer-result" class="answer-result"><span id="answer-result-label">作答结果</span><strong id="answer-result-value"></strong></div>
+        <div class="evidence-comparison">
+          <div>
+            <span class="comparison-label">你的证据</span>
+            <blockquote id="user-evidence-result"></blockquote>
+          </div>
+          <div>
+            <span class="comparison-label">标准证据</span>
+            <blockquote id="standard-evidence-result"></blockquote>
+          </div>
+        </div>
+
+        <div id="diagnosis-copy" class="diagnosis-copy">
+          <p id="diagnosis-language" class="diagnosis-language"></p>
+          <h3 id="primary-error"></h3>
+          <div class="feedback-steps">
+            <div><span>错误发生在哪里</span><p id="feedback-where"></p></div>
+            <div><span>为什么会错</span><p id="feedback-why"></p></div>
+            <div><span>下次怎么做</span><p id="feedback-fix"></p></div>
+          </div>
+          <div id="specific-feedback" class="specific-feedback" hidden>
+            <p class="specific-kicker">这题具体要核对什么</p>
+            <div><span>题干表达</span><strong id="specific-question-expression"></strong></div>
+            <div><span>原文表达</span><strong id="specific-passage-expression"></strong></div>
+            <p id="specific-explanation"></p>
+            <p id="specific-action"></p>
+          </div>
+          <dl class="decision-trace" id="decision-trace"></dl>
+          <div id="diagnosis-feedback" class="diagnosis-feedback">
+            <span>这个诊断符合你的实际情况吗？</span>
+            <div>
+              <button class="secondary-button diagnosis-vote" type="button" data-vote="accepted">符合</button>
+              <button class="secondary-button diagnosis-vote" type="button" data-vote="rejected">不符合</button>
+            </div>
+            <p id="diagnosis-vote-message" class="field-status" aria-live="polite"></p>
+          </div>
+        </div>
+        <div id="correct-copy" class="correct-copy" hidden>
+          <h3>答案与证据均成立</h3>
+          <p>这次作答没有发现可支持的主要错因，因此不会生成补救练习。系统只记录可观察的正确表现。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="exercise-section" class="exercise-section" aria-labelledby="exercise-title" hidden>
+      <div class="exercise-header">
+        <div>
+          <p id="exercise-stage" class="kicker">TARGETED PRACTICE</p>
+          <h2 id="exercise-title">针对性微练习</h2>
+        </div>
+        <span id="exercise-target" class="confidence-badge"></span>
+      </div>
+      <p class="exercise-intro">这道题只训练刚才识别出的主要错因。即时练习完成后，还需要用新材料完成迁移题。</p>
+      <article class="exercise-passage">
+        <p id="exercise-passage"></p>
+      </article>
+      <form id="exercise-form">
+        <fieldset>
+          <legend id="exercise-question"></legend>
+          <div id="exercise-options" class="exercise-options"></div>
+        </fieldset>
+        <button id="exercise-hint" class="secondary-button" type="button">查看方法提示</button>
+        <button id="exercise-submit" class="primary-button" type="submit">提交练习答案</button>
+      </form>
+      <div id="exercise-feedback" class="exercise-feedback" aria-live="polite" hidden></div>
+    </section>
+
+    <div class="next-diagnostic-action"><button id="new-diagnostic" class="primary-button new-diagnostic-button" type="button" hidden>开始下一次诊断</button></div>
+
+    <section id="learner-report" class="learner-report" aria-labelledby="report-title">
+      <div class="report-heading">
+        <div>
+          <p class="kicker">LEARNER STATE</p>
+          <h2 id="report-title">你的可观察学习记录</h2>
+        </div>
+        <div class="report-actions">
+          <a class="text-link" href="/case-study.html">查看产品案例</a>
+          <a class="text-link" href="/analytics.html">查看Demo数据漏斗</a>
+          <button id="clear-demo" class="text-button" type="button">清除本地演示数据</button>
+        </div>
+      </div>
+      <p class="report-note">仅记录错因、练习和迁移表现，不使用“粗心”或“能力差”等人格标签。数据保存在当前浏览器。</p>
+      <div class="report-stats">
+        <div><strong id="report-diagnoses">0</strong><span>已记录诊断</span></div>
+        <div><strong id="report-practice">0</strong><span>微练习完成</span></div>
+        <div><strong id="report-transfer">0%</strong><span>迁移题正确率</span></div>
+        <div><strong id="report-recurring">暂无</strong><span>复发错因</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

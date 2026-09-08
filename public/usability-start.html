@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>首次用户测试启动说明 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">首次用户测试启动说明</span></header>
+  <main class="review-start-main">
+    <section class="review-start-hero">
+      <p class="kicker">UNASSISTED USABILITY HANDOFF</p>
+      <h1>测试产品能否自我解释，而不是主持人会不会教学。</h1>
+      <p class="intro-copy">这是给研究主持人的操作说明，不要把本页展示给参与者。参与者只打开带匿名会话参数的产品页，并按自己的理解完成诊断、练习与迁移。</p>
+      <div class="review-start-actions">
+        <a class="primary-button inline-button" href="/usability.html">进入研究记录工具</a>
+        <a class="secondary-button inline-button" href="#script">查看固定主持话术</a>
+      </div>
+    </section>
+
+    <section class="handoff-strip" aria-label="研究边界">
+      <div><strong>5.5–6.5</strong><span>目标阅读分数</span></div>
+      <div><strong>1人1会话</strong><span>事件链不得复用</span></div>
+      <div><strong>0教学</strong><span>不解释按钮、证据或答案</span></div>
+      <div><strong>≥5人</strong><span>才显示探索性汇总</span></div>
+    </section>
+
+    <div class="review-start-grid">
+      <div>
+        <section class="handoff-panel" aria-labelledby="preflight-title">
+          <p class="kicker">01 · PREFLIGHT</p>
+          <h2 id="preflight-title">测试前检查</h2>
+          <ul class="handoff-checklist">
+            <li>参与者IELTS Reading为5.5–6.5，有做题经验，并认为正确率长期停滞。</li>
+            <li>参与者明确同意匿名记录，也知道可以拒绝或随时停止。</li>
+            <li>只创建匿名编号，例如<code>P001</code>；不记录姓名、微信、电话、邮箱、学校或机构。</li>
+            <li>为本次参与者新建专属匿名产品会话，不复用以前的链接。</li>
+            <li>打开产品前关闭演示结果、聊天记录或任何可能提示任务答案的页面。</li>
+          </ul>
+        </section>
+
+        <section class="handoff-panel" aria-labelledby="environment-title">
+          <p class="kicker">02 · LOCAL SESSION BOUNDARY</p>
+          <h2 id="environment-title">当前版本必须使用同一浏览器环境</h2>
+          <p>研究记录和匿名产品事件保存在当前浏览器的本地存储中。必须从研究记录工具点击“打开参与者产品页”，让参与者在同一浏览器配置文件的新标签页中完成任务。</p>
+          <p class="handoff-note"><strong>不能把localhost链接直接发到另一台设备。</strong>另一台电脑或另一个浏览器配置文件产生的事件不会自动回到主持人的记录页。远程测试只能通过屏幕共享或远程控制同一测试浏览器完成；否则本次数据不可作为已验证事件链保存。</p>
+        </section>
+
+        <section id="script" class="handoff-panel" aria-labelledby="script-title">
+          <p class="kicker">03 · FIXED MODERATOR SCRIPT</p>
+          <h2 id="script-title">只使用这段开场话术</h2>
+          <blockquote class="moderator-script">请独立完成一次阅读错因诊断和系统提供的后续练习。请按照你自己的理解操作，我现在不会解释页面或告诉你答案。如果你无法继续，可以直接说出来。</blockquote>
+          <h3>诊断结果出现后</h3>
+          <blockquote class="moderator-script">请用自己的话说明：你错在哪里、为什么会错、下次准备怎么做。</blockquote>
+          <p class="handoff-note">不要额外提醒参与者划选证据、填写思路、点击练习、寻找提示或完成迁移题。上述行为是否能被自然发现，正是测试内容。</p>
+        </section>
+
+        <section class="handoff-panel" aria-labelledby="record-title">
+          <p class="kicker">04 · OBSERVE, DO NOT RESCUE</p>
+          <h2 id="record-title">卡住也要保存</h2>
+          <ul class="handoff-list">
+            <li>观察停顿、回退、误解和放弃，不在首次尝试中纠正。</li>
+            <li>如果为了继续测试而提供帮助，将“无研究者帮助完成”记录为否，并勾选对应阻塞点。</li>
+            <li>中途未完成仍要同步事件并保存失败记录，不删除、不换编号重做。</li>
+            <li>诊断路径必须到迁移题才算路径完成；答案正确或安全拒答路径在结果页终止。</li>
+            <li>理解计时从诊断出现开始，到参与者完成Where、Why、Fix复述结束。</li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="handoff-sidebar" aria-label="测试执行速查">
+        <section><p class="kicker">BEFORE</p><h2>创建记录</h2><p>确认准入与同意，填写匿名编号，然后创建新的研究会话。</p></section>
+        <section><p class="kicker">DURING</p><h2>只观察</h2><p>打开专属产品页，使用固定话术，不解释界面和方法。</p></section>
+        <section><p class="kicker">AFTER</p><h2>同步事件</h2><p>返回记录页同步产品事件，完成理解计时、复述判断和阻塞点记录。</p></section>
+        <section><p class="kicker">FAILURE IS DATA</p><h2>不要筛掉失败</h2><p>卡住、求助、放弃和技术故障都是真实可用性证据，不能为了提高比例而删除。</p></section>
+        <section><p class="kicker">CLAIM LIMIT</p><h2>不是提分实验</h2><p>5名独立目标用户只支持探索性可用性结论，不证明学习效果或分数提升。</p></section>
+      </aside>
+    </div>
+
+    <section class="invite-template" aria-labelledby="participant-invite-title">
+      <p class="kicker">RECRUITMENT TEMPLATE</p>
+      <h2 id="participant-invite-title">可直接发送的参与邀请</h2>
+      <blockquote>你好，我正在测试一个面向雅思阅读5.5–6.5分学习者的错因诊断原型，想了解第一次使用时哪些地方清楚、哪些地方会卡住。任务约需15–25分钟，不测试你的能力，也不会要求姓名、手机号、微信、邮箱或学校信息。过程只使用匿名编号，你可以拒绝参与或随时停止；本次测试不用于证明提分。如果你愿意，我会安排一个使用同一测试浏览器的现场或远程屏幕共享时段。</blockquote>
+    </section>
+
+    <section class="review-start-footer">
+      <div><p class="kicker">READY TO RUN</p><h2>每名参与者都从新的专属会话开始。</h2><p>研究记录页会从产品事件自动计算证据提交和任务时间，并拒绝重复使用同一事件会话填充样本。</p></div>
+      <a class="primary-button inline-button" href="/usability.html">创建第一条测试会话</a>
+    </section>
+  </main>
+</body>
+</html>

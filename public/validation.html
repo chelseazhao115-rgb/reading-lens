@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>验证工作台 | Reading Lens</title><link rel="stylesheet" href="/styles.css"></head>
+<body>
+  <header class="site-header"><a class="brand" href="/">Reading Lens</a><span class="header-note">验证工作台</span></header>
+  <main class="validation-main">
+    <section class="validation-hero">
+      <p class="kicker">EVIDENCE OPERATIONS · LIVE SERVER STATE</p>
+      <h1>三天内停止开发，<br>把两项关键证据做完。</h1>
+      <p class="intro-copy">收尾只看微练习教师审核和修复后用户复测。诊断Gold已有10条探索性试审，剩余40条不再阻塞作品集交付。</p>
+      <p id="validation-updated" class="field-status" aria-live="polite">正在读取验证进度。</p>
+    </section>
+    <section class="validation-priority" aria-labelledby="priority-title">
+      <p class="kicker">DO THIS NEXT</p>
+      <div><span id="priority-number">—</span><div><h2 id="priority-title">正在确定下一项任务</h2><p id="priority-detail">请稍候。</p></div></div>
+      <a id="priority-action" class="primary-button inline-button" href="/review-start.html">打开执行入口</a>
+    </section>
+    <section class="evidence-ledger" aria-labelledby="ledger-title">
+      <div class="section-heading"><span id="ledger-title">EVIDENCE LEDGER</span><span>独立证据，不是自评</span></div>
+      <article class="ledger-row" data-task="diagnosis">
+        <div class="ledger-index">A</div>
+        <div class="ledger-copy"><p class="kicker">STRETCH · NOT BLOCKING CLOSEOUT</p><h2>诊断教师盲审</h2><p>已有10条合格探索性试审。剩余40条用于解锁正式指标，但不阻塞三天项目收尾。</p></div>
+        <div class="ledger-state"><strong id="diagnosis-progress">— / 50</strong><span id="diagnosis-remaining">正在读取</span><a href="/review-start.html">查看规则并继续</a></div>
+      </article>
+      <article class="ledger-row" data-task="exercise">
+        <div class="ledger-index">B</div>
+        <div class="ledger-copy"><p class="kicker">MICRO EXERCISE REVIEW</p><h2>微练习两阶段盲审</h2><p>教师先独立作答和判断训练目标，再查看标准信息完成六维复核。</p></div>
+        <div class="ledger-state"><strong id="exercise-progress">— / 10</strong><span id="exercise-remaining">正在读取</span><a href="/exercise-review-start.html">打开独立审核说明</a></div>
+      </article>
+      <article class="ledger-row" data-task="retest">
+        <div class="ledger-index">C</div>
+        <div class="ledger-copy"><p class="kicker">POST-FIX RETEST</p><h2>修复后新用户复测</h2><p>只招募新的5.5–6.5分目标用户，使用新会话；不把首轮5人重复计算。</p></div>
+        <div class="ledger-state"><strong id="retest-progress">— / 3</strong><span id="retest-remaining">正在读取</span><a href="/usability-start.html">打开主持协议</a></div>
+      </article>
+    </section>
+    <section class="validation-boundary">
+      <p class="kicker">CLAIM BOUNDARY</p>
+      <p>10条诊断Gold只报告探索性一致率，不冒充正式指标；10条微练习审核完成前不声称练习通过教师验证；3名修复后用户完成前不声称迭代已被真实用户验证。剩余正式Gold与长期学习效果进入Future Improvements。</p>
+    </section>
+  </main>
+  <script type="module" src="/validation.js"></script>
+</body>
+</html>
