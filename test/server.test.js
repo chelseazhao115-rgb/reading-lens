@@ -247,7 +247,7 @@ test('portfolio case study explains the complete product and evidence story', ()
   assert.match(html, /为什么必须提交Evidence/);
   for (const label of ['定位错误', '同义替换', '句子理解', '题型策略', '推理越界']) assert.match(html, new RegExp(label));
   for (const step of ['Answer', 'Evidence', 'Reasoning', 'Diagnosis', 'Correction', 'Practice', 'Transfer', 'Learner State']) assert.match(html, new RegExp(step));
-  assert.match(html, /确定性验证器先于模型运行/);
+  assert.match(html, /确定性验证器先于候选模型运行/);
   assert.match(html, /当前失败边界/);
   assert.match(html, /如何证明产品真正有效/);
   assert.match(html, /<iframe src="\/\?portfolio_preview=1"/);

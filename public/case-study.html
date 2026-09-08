@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="AI雅思阅读错因诊断教练产品案例：从教师判断到可评测AI工作流。">
+  <title>产品案例 | AI雅思阅读错因诊断教练</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/case-study.css">
+</head>
+<body class="case-page">
+  <header class="case-nav">
+    <a class="brand" href="/case-study.html">Reading Lens Case</a>
+    <nav aria-label="案例导航">
+      <a href="/">产品演示</a>
+      <a href="/evals.html">评测结果</a>
+      <a href="/usability.html">用户研究</a>
+      <a href="/portfolio-review.html">案例理解测试</a>
+    </nav>
+  </header>
+
+  <main class="case-main">
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="case-hero-copy">
+        <p class="kicker">AI EDUCATION PRODUCT CASE</p>
+        <h1 id="case-title">诊断学生为什么会错。</h1>
+        <p>面向雅思阅读5.5-6.5分学习者，定位反复犯错背后的认知环节，并用迁移题验证修正。</p>
+        <div class="case-actions">
+          <a class="case-primary-link" href="/">体验完整闭环</a>
+          <a class="case-secondary-link" href="/evals.html">查看评测证据</a>
+        </div>
+      </div>
+      <figure class="live-product">
+        <div class="live-product-bar"><span>真实运行页面</span><a href="/" target="_blank" rel="noopener">单独打开</a></div>
+        <iframe src="/?portfolio_preview=1" title="Reading Lens真实产品页面"></iframe>
+        <figcaption>真实产品界面，可以直接操作。不是静态视觉稿。</figcaption>
+      </figure>
+    </section>
+
+    <section class="problem-section" aria-labelledby="problem-title">
+      <div class="problem-statement">
+        <h2 id="problem-title">学生知道答案错了，却不知道错误发生在哪一步。</h2>
+        <p>传统解析解释正确答案，但无法区分定位、同义替换、句子理解、题型规则和推理边界。学生看懂解析后，下一次仍可能重复同类错误。</p>
+      </div>
+      <div class="problem-contrast" aria-label="普通解析与错因诊断对比">
+        <div><span>普通答案解析</span><strong>告诉学生正确答案是什么</strong></div>
+        <div><span>错因诊断教练</span><strong>定位最先失效的认知步骤</strong></div>
+      </div>
+    </section>
+
+    <section class="workflow-section" aria-labelledby="workflow-title">
+      <p class="kicker">LEARNING LOOP</p>
+      <h2 id="workflow-title">完整闭环不是一次回答，而是一条可验证链路。</h2>
+      <div class="workflow-track" aria-label="学习闭环">
+        <div><strong>Answer</strong><span>学生答案</span></div>
+        <div><strong>Evidence</strong><span>原文证据</span></div>
+        <div><strong>Reasoning</strong><span>判断过程</span></div>
+        <div><strong>Diagnosis</strong><span>主要错因</span></div>
+        <div><strong>Correction</strong><span>具体修正</span></div>
+        <div><strong>Practice</strong><span>针对练习</span></div>
+        <div><strong>Transfer</strong><span>无辅助迁移</span></div>
+        <div><strong>Learner State</strong><span>可观察记录</span></div>
+      </div>
+    </section>
+
+    <section class="logic-section" aria-labelledby="logic-title">
+      <div class="logic-copy">
+        <h2 id="logic-title">AI不自由猜测，先走教师的因果判断链。</h2>
+        <p>一级错因固定为五类。系统必须先验证证据，再从最早失败的环节向后判断，只突出一个主要错因。</p>
+        <div class="taxonomy" aria-label="五类一级错因">
+          <span>定位错误</span><span>同义替换</span><span>句子理解</span><span>题型策略</span><span>推理越界</span>
+        </div>
+      </div>
+      <ol class="causal-chain">
+        <li><strong>证据区域正确吗</strong><span>否：定位错误</span></li>
+        <li><strong>语义对应识别了吗</strong><span>否：同义替换</span></li>
+        <li><strong>句子真正理解了吗</strong><span>否：句子理解</span></li>
+        <li><strong>题型规则用对了吗</strong><span>否：题型策略</span></li>
+        <li><strong>推理超过原文了吗</strong><span>是：推理越界</span></li>
+      </ol>
+    </section>
+
+    <section class="safety-section" aria-labelledby="safety-title">
+      <div>
+        <h2 id="safety-title">产品机制负责约束AI，而不是把风险留给Prompt。</h2>
+        <p>当前学生端使用确定性 <code>rule-baseline</code>；DeepSeek 只是经过评测、尚未放行的候选Provider。确定性验证器先于候选模型运行。标准证据无法在原文中精确匹配时，系统停止诊断；置信度不足时进入教师复核。</p>
+      </div>
+      <dl class="safety-specs">
+        <div><dt>Evidence First</dt><dd>quote必须能在passage中程序化匹配</dd></div>
+        <div><dt>Structured Gate</dt><dd>非法标签、因果跳步或矛盾置信度一律拒答</dd></div>
+        <div><dt>Confidence Gate</dt><dd>低于0.60不输出确定性结论</dd></div>
+        <div><dt>Version Trace</dt><dd>记录Provider、Prompt哈希、模型版本与延迟</dd></div>
+        <div><dt>Exercise Gate</dt><dd>答对即时练习后才解锁无辅助迁移题</dd></div>
+      </dl>
+    </section>
+
+    <section class="evidence-section" aria-labelledby="evidence-title">
+      <p class="kicker">CURRENT EVIDENCE</p>
+      <h2 id="evidence-title">把已证明、待验证和不可宣称的结果分开。</h2>
+      <div id="case-evidence-status" class="case-evidence-status" aria-live="polite">正在读取最新评测证据。</div>
+      <div id="case-evidence-grid" class="case-evidence-grid" hidden></div>
+      <p id="case-evidence-note" class="case-evidence-note"></p>
+    </section>
+
+    <section class="decision-section" aria-labelledby="decision-title">
+      <div>
+        <h2 id="decision-title">关键产品判断</h2>
+        <dl class="decision-list">
+          <div><dt>为什么必须提交Evidence</dt><dd>答案结果不能解释错误原因，证据能定位判断从哪一步偏离。</dd></div>
+          <div><dt>为什么只突出一个主要错因</dt><dd>修正动作需要单一焦点，多标签会降低学生理解和练习靶向性。</dd></div>
+          <div><dt>为什么Transfer更重要</dt><dd>即时做对可能来自刚看过反馈，新材料上的无辅助表现更接近真正掌握。</dd></div>
+          <div><dt>为什么模型不能自动上线</dt><dd>候选Provider必须同时改善分类与覆盖，并通过安全、输出契约和预算门槛。</dd></div>
+        </dl>
+      </div>
+      <aside class="known-limitations">
+        <h3>当前失败边界</h3>
+        <p>规则基线在困难边界上大量拒答；DeepSeek在同一组8条项目作者困难开发案例上的Prompt v1→v2→v3从4/8提升至6/8再到7/8（87.5%）。这些案例参与了Prompt迭代，不是独立hold-out、Teacher Gold或泛化准确率。观察到的不安全错误保持为0，但v3仍有1/8输出被契约闸门安全拒绝，因此候选模型没有进入学生端。</p>
+        <a href="/evals.html">查看完整证据边界</a>
+      </aside>
+    </section>
+
+    <section class="validation-section" aria-labelledby="validation-title">
+      <div>
+        <h2 id="validation-title">如何证明产品真正有效</h2>
+        <p>先证明教师一致率和可用性，再观察迁移与复发，不用小样本宣称雅思提分。</p>
+      </div>
+      <div class="validation-path">
+        <div><strong>教师质量</strong><span>50条诊断Gold与10道练习六维审核</span></div>
+        <div><strong>首次可用性</strong><span>至少5名目标用户无指导完成</span></div>
+        <div><strong>学习迁移</strong><span>即时练习、Retry和无辅助Transfer</span></div>
+        <div><strong>持续行为</strong><span>复发错因、提示依赖和7日复访</span></div>
+      </div>
+    </section>
+
+    <footer class="case-footer">
+      <div><strong>Reading Lens</strong><span>AI雅思阅读错因诊断教练</span></div>
+      <div><a href="/">产品</a><a href="/evals.html">评测</a><a href="/review.html">教师盲审</a><a href="/portfolio-review.html">案例理解测试</a></div>
+    </footer>
+  </main>
+  <script type="module" src="/case-study.js"></script>
+</body>
+</html>

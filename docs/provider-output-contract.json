@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reading Lens Diagnostic Provider Output",
+  "type": "object",
+  "required": ["status", "primary_error", "secondary_error", "confidence", "reason", "evidence", "decision_trace"],
+  "properties": {
+    "status": { "type": "string", "enum": ["diagnosed", "correct", "abstained"] },
+    "primary_error": {
+      "type": ["string", "null"],
+      "enum": ["location", "paraphrase", "sentence_comprehension", "question_strategy", "over_inference", "insufficient_information", "ambiguous_question", "data_error", null]
+    },
+    "secondary_error": {
+      "type": ["string", "null"],
+      "enum": ["location", "paraphrase", "sentence_comprehension", "question_strategy", "over_inference", null]
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+    "reason": { "type": "string" },
+    "evidence": {
+      "type": "object",
+      "properties": { "standard_quote_valid": { "const": true } },
+      "required": ["standard_quote_valid"],
+      "additionalProperties": false
+    },
+    "decision_trace": {
+      "type": "object",
+      "required": ["evidence_location", "semantic_mapping", "sentence_understanding", "question_rule", "reasoning_boundary"],
+      "properties": {
+        "evidence_location": { "$ref": "#/$defs/traceState" },
+        "semantic_mapping": { "$ref": "#/$defs/traceState" },
+        "sentence_understanding": { "$ref": "#/$defs/traceState" },
+        "question_rule": { "$ref": "#/$defs/traceState" },
+        "reasoning_boundary": { "$ref": "#/$defs/traceState" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "traceState": { "enum": ["pass", "fail", "not_assessed"] }
+  },
+  "additionalProperties": false
+}
